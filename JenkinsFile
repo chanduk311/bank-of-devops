@@ -9,14 +9,14 @@ pipeline {
         stage('Install') {
             steps {
                 dir('backend') {
-                    sh 'npm install'
+                    bat 'npm install'
                 }
             }
         }
         stage('Run') {
             steps {
                 dir('backend') {
-                    sh 'node server.js'
+                    bat 'node server.js'
                 }
             }
         }
