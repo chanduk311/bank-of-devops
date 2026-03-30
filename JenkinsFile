@@ -1,0 +1,24 @@
+pipeline {
+    agent any
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+        stage('Install') {
+            steps {
+                dir('backend') {
+                    sh 'npm install'
+                }
+            }
+        }
+        stage('Run') {
+            steps {
+                dir('backend') {
+                    sh 'node server.js'
+                }
+            }
+        }
+    }
+}
